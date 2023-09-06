@@ -1,0 +1,96 @@
+Importing:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+1 Argument:
+    >>> add_integer(2)
+    100
+
+1st argument = 0:
+    >>> add_integer(98)
+    98
+
+1 Argument, float, +ve:
+    >>> add_integer(105.5)
+    203
+
+1 Argument, float, -ve:
+    >>> add_integer(-105.5)
+    -7
+
+2 Args, int, +ve:
+    >>> add_integer(54, 4)
+    58
+
+2 args, int, mixed:
+    >>> add_integers(74, -10)
+    64
+
+2 args, int, -ve:
+    >>> add_integers(-98, -5)
+    -103
+
+2 args, float, +ve:
+    >>> add_integer(102.5, 687.325)
+    789
+
+2 args, float, mixed:
+    >>> add_integer(6512.651, -984.5)
+    5528
+
+2 args, float, -ve:
+    >>> add_integer(-54.56, -4.42)
+    -58
+
+2 args, mixed, +ve:
+    >>> add_integer(56, 15.9652)
+    71
+
+2 args, mixed, mixed:
+    >>> add_integer(651, -54.156)
+    596
+
+2 args, mixed, -ve:
+    >>> add_integer(-14521551, -1549.84712)
+    -14,523,100
+
+adding infinity:
+    >>> add_integer(float('inf'), float('-inf'))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+adding NaN:
+    >>> add_integer(0, float('nan'))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+invalid arg 1:
+    >>> add_integer("rahaf", 0)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+invalid arg 2:
+    >>> add_integer(123123, [])
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+invalid args:
+    >>> add_integer(None, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+str args:
+    >>> add_integer("rahaf", "hazem")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+float overflow(another face of infinity):
+    >>> add_integer(float('inf'), 9)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
