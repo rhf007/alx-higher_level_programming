@@ -6,8 +6,14 @@ def add_integer(a, b=98):
     """Add 2 integers
 
     Args:
-        a(int): first number
-        b(int): second number
+        a: first number
+        b: second number
+
+    Raises:
+        TypeError: a,b not float or int
+
+    Returns:
+        sum of a, b
     """
     if not isinstance(a, int) or not isinstance(a, float):
         raise TypeError("a must be an integer")
