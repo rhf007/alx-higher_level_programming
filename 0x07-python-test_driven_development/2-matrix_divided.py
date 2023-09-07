@@ -1,24 +1,20 @@
 #!/usr/bin/python3
-"""dividing a matrix"""
+"""module for dividing a matrix"""
 
 
 def matrix_divided(matrix, div):
     """divide elements of matrix by div
-
     Args:
         matrix: matrix of numbers
         div: number to divide matrix elements by
-
     Raises:
         TypeError: if matrix elements are not int or float
         TypeError: matrix rows are not the same size
         TypeError: div is not a number
         ZeroDivisionError: Dividing by zero
-
     Returns:
         division result
     """
-
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     if div == 0:
