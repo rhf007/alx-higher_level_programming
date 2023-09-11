@@ -1,0 +1,50 @@
+import & initialize:
+    >>> MyList = __import__('1-my_list').MyList
+    >>> ml = MyList()
+    >>> isinstance(ml, list)
+    True
+    >>> ml.print_sorted()
+    []
+
+add +ve ints:
+    >>> ml.append(2)
+    >>> ml.append(2)
+    >>> ml.append(5)
+    >>> ml.append(8)
+    >>> ml.print_sorted()
+    [2, 2, 5, 8]
+
+add -ve ints:
+    >>> ml.append(-444)
+    >>> ml.append(-15)
+    >>> ml.print_sorted()
+    [-444, -15, 2, 2, 5, 8]
+
+add 0:
+    >>> ml.append(0)
+    >>> ml.print_sorted()
+    [-444, -15, 0, 2, 2, 5, 8]
+
+all same elemnts:
+    >>> ml.clear()
+    >>> ml.append(3)
+    >>> ml.append(3)
+    >>> ml.append(3)
+    >>> ml.print_sorted()
+    [3, 3, 3]
+
+inf:
+    >>> ml.append(int('inf'))
+    Traceback (most recent call last):
+    ValueError: invalid literal for int() with base 10: 'inf'
+
+None:
+    >>> ml.append(None)
+    >>> ml.print_sorted()
+    Traceback (most recent call last):
+    TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+NULL:
+    >>> ml.append(NULL)
+    Traceback (most recent call last):
+    NameError: name 'NULL' is not defined
