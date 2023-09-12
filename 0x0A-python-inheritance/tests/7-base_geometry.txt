@@ -1,0 +1,104 @@
+Importing:
+    >>> bg = __import__('7-base_geometry').BaseGeometry
+
+Normal:
+    >>> b = bg()
+    >>> type(b) == bg
+    True
+
+area method:
+    >>> type(bg.__dict__['area'])
+    <class 'function'>
+
+area method no args:
+    >>> b.__class__.area()
+    Traceback (most recent call last):
+    TypeError: area() missing 1 required positional argument: 'self'
+
+area method 1 arg:
+    >>> b.area(10)
+    Traceback (most recent call last):
+    TypeError: area() takes 1 positional argument but 2 were given
+
+normal area method:
+    >>> b.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+valiadtor method:
+    >>> type(bg.__dict__['integer_validator'])
+    <class 'function'>
+
+validator method no args(class):
+    >>> b.__class__.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
+
+validator method no args:
+    >>> b.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+validator method 3 args:
+    >>> b.integer_validator(5, 4, 1)
+    Traceback (most recent call last):
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+validator float:
+    >>> b.integer_validator("r", 3.0)
+    Traceback (most recent call last):
+    TypeError: r must be an integer
+
+another float:
+    >>> b.integer_validator("r", 3.14)
+    Traceback (most recent call last):
+    TypeError: r must be an integer
+
+string:
+    >>> b.integer_validator("r", "bar")
+    Traceback (most recent call last):
+    TypeError: r must be an integer
+
+bool:
+    >>> b.integer_validator("r", True)
+    Traceback (most recent call last):
+    TypeError: r must be an integer
+
+list:
+    >>> b.integer_validator("r", [1])
+    Traceback (most recent call last):
+    TypeError: r must be an integer
+
+None:
+    >>> b.integer_validator("r", None)
+    Traceback (most recent call last):
+    TypeError: r must be an integer
+
+0:
+    >>> b.integer_validator("r", 0)
+    Traceback (most recent call last):
+    ValueError: r must be greater than 0
+
+-ve:
+    >>> b.integer_validator("r", -14)
+    Traceback (most recent call last):
+    ValueError: r must be greater than 0
+
+normal:
+    >>> b.integer_validator("r", 45)
+
+empty string:
+    >>> b.integer_validator("", 5)
+
+None string:
+    >>> b.integer_validator(None, 5)
+
+tuple:
+    >>> b.integer_validator("r", (4, 3))
+    Traceback (most recent call last):
+    TypeError: r must be an integer
+
+dict:
+    >>> b.integer_validator("r", {7, 6})
+    Traceback (most recent call last):
+    TypeError: r must be an integer
