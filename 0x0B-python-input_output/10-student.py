@@ -10,7 +10,13 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """retreive json"""
+        """retreive json
+
+        Args:
+	    attrs: some attribute
+
+        Returns:
+            new dict if attrs is list of strings, json otherwise"""
         if attrs is None:
             return self.__dict__
 	dic = {}
