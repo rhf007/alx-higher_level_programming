@@ -17,8 +17,6 @@ class Student:
         Args:
 	    attrs: some attribute
 
-        Returns:
-            new dict if attrs is list of strings, json otherwise
         """
         if attrs is None:
             return self.__dict__
@@ -29,5 +27,6 @@ class Student:
         return dic
 
     def reload_from_json(self, json):
+        """load from json"""
         for key, value in json.items():
             setattr(self, key, value)
