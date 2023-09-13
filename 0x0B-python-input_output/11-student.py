@@ -15,12 +15,11 @@ class Student:
         """retreive json
 
         Args:
-	    attrs: some attribute
-
+            attrs: some attribute
         """
         if attrs is None:
             return self.__dict__
-	dic = {}
+        dic = {}
         for key, value in self.__dict__.items():
             if key in attrs:
                 dic[key] = value
