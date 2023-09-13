@@ -16,7 +16,6 @@ class Student:
 
         Args:
 	    attrs: some attribute
-
         """
         if attrs is None:
             return self.__dict__
