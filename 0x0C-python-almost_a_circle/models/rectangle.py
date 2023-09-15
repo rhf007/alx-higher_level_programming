@@ -76,3 +76,13 @@ class Rectangle(Base):
     def area(self):
         """rectangle area"""
         return self.__width * self.__height
+
+    def display(self):
+        """rectangle display"""
+        rect = []
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rect.append("#")
+            rect.append("\n")
+        rect.pop()
+        print("".join(rect))
