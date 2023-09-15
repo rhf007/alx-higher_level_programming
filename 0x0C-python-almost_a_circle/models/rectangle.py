@@ -79,13 +79,13 @@ class Rectangle(Base):
 
     def display(self):
         """rectangle display"""
-        rect = []
-        for i in range(self.__height):
-            for j in range(self.__width):
-                rect.append("#")
-            rect.append("\n")
-        rect.pop()
-        print("".join(rect))
+        for i in range(self.__y):
+            print()
+        for j in range(self.__height):
+            print(" " * self.__x, end="")
+            for k in range(self.__width):
+                print("#", end="")
+            print()
 
     def __str__(self):
         """__str__ for rectangle"""
