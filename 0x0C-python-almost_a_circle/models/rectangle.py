@@ -91,3 +91,17 @@ class Rectangle(Base):
         """__str__ for rectangle"""
         return "[Rectangle] ({}) {}/{} - {}/{}"\
                .format(self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args):
+        """update function"""
+        for i in range(len(args)):
+            if i == 0:
+                self.id = args[i]
+            elif i == 1:
+                self.__width = args[i]
+            elif i == 2:
+                self.__height = args[i]
+            elif i == 3:
+                self.__x = args[i]
+            else:
+                self.__y = args[i]
