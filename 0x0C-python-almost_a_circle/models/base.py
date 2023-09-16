@@ -43,3 +43,17 @@ class Base:
         else:
             lst.append(json.loads(json_string))
             return lst
+
+    @classmethod
+    def create(cls, **dictionary):
+        """create instance"""
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            newinst = Rectangle(1, 1)
+        elif cls is Square:
+            newinst = Square(1)
+        else:
+            newinst = None
+        newinst.update(**dictionary)
+        return newinst
