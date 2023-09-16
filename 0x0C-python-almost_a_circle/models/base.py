@@ -41,19 +41,33 @@ class Base:
         if json_string is None or json_string == "":
             return []
         else:
-            lst.append(json.loads(json_string))
-            return lst
+            return (json.loads(json_string))
 
     @classmethod
     def create(cls, **dictionary):
         """create instance"""
-        from models.rectangle import Rectangle
-        from models.square import Square
-        if cls is Rectangle:
-            newinst = Rectangle(1, 1)
-        elif cls is Square:
-            newinst = Square(1)
-        else:
-            newinst = None
+        if cls.__name__ == "Rectangle":
+            newinst = cls(1, 1)
+        if cls.__name__ == "Square":
+            newinst = cls(1)
         newinst.update(**dictionary)
         return newinst
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        from os import path
+        filename = "{}.json".format(cls.__name__)
+        if path.exists(filename) is False:
+            return []
+
+        with open(filename, 'r') as f:
+            list_str = f.read()
+
+        list_cls = cls.from_json_string(list_str)
+        list_ins = []
+
+        for index in range(len(list_cls)):
+            list_ins.append(cls.create(**list_cls[index]))
+
+        return list_ins
