@@ -23,12 +23,12 @@ class TestBase(unittest.TestCase):
     def test_id(self):
         """testing an assigned id value"""
         b1 = Base()
-        b2 = Base(None)
-        b3 = Base(-1)
-        b4 = Base(8)
         self.assertEqual(b1.id, 1)
+        b2 = Base(None)
         self.assertEqual(b2.id, 2)
+        b3 = Base(-1)
         self.assertEqual(b3.id, -1)
+        b4 = Base(8)
         self.assertEqual(b4.id, 8)
 
     def test_to_json_string(self):
