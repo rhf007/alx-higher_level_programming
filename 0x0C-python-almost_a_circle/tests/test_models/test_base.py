@@ -85,7 +85,6 @@ were given"
         b = Base(id=i)
         self.assertEqual(b.id, i)
 
-
     def test_H_to_json_string(self):
         '''Tests to_json_string() signature:'''
         with self.assertRaises(TypeError) as e:
@@ -157,7 +156,6 @@ were given"
         dictionary = dictionary.replace("'", '"')
         self.assertEqual(dictionary, json_dictionary)
 
-
     def test_H_test_from_json_string(self):
         '''Tests to_json_string() signature:'''
         with self.assertRaises(TypeError) as e:
@@ -209,7 +207,6 @@ were given"
             Rectangle.to_json_string(list_in))
         self.assertEqual(list_in, list_out)
 
-
     def test_I_save_to_file(self):
         '''Tests save_to_file() method.'''
         import os
@@ -226,7 +223,7 @@ were given"
 
         try:
             os.remove("Rectangle.json")
-        except:
+        except Exception:
             pass
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
@@ -243,7 +240,7 @@ were given"
 
         try:
             os.remove("Square.json")
-        except:
+        except Exception:
             pass
         Square.save_to_file([])
         with open("Square.json", "r") as file:
@@ -254,7 +251,6 @@ were given"
         with open("Square.json", "r") as file:
             self.assertEqual(len(file.read()), 38)
 
-
     def test_J_create(self):
         '''Tests create() method.'''
         r1 = Rectangle(3, 5, 1)
@@ -263,7 +259,6 @@ were given"
         self.assertEqual(str(r1), str(r2))
         self.assertFalse(r1 is r2)
         self.assertFalse(r1 == r2)
-
 
     def test_K_load_from_file(self):
         '''Tests load_from_file() method.'''
@@ -286,6 +281,7 @@ were given"
         self.assertEqual(str(list_in[0]), str(list_out[0]))
         self.assertNotEqual(id(list_in[1]), id(list_out[1]))
         self.assertEqual(str(list_in[1]), str(list_out[1]))
+
 
 if __name__ == "__main__":
     unittest.main()
