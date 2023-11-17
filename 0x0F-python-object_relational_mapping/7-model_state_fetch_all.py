@@ -13,6 +13,6 @@ if __name__ == "__main__":
     engine = create_engine(uri)
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     for row in session.query(State).order_by(State.id).all():
         print("{}: {}".format(row.id, row.name))
